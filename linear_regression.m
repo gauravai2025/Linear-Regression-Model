@@ -12,11 +12,11 @@ for i=1:l1
     s4=s4+x(i)*y(i);
 end
 
-a1=(l1*s4-(s1*s2))/(l1*s3-s1^2);
-a0=s2/l1-a1*(s1/l1);
+b=(l1*s4-(s1*s2))/(l1*s3-s1^2);
+a=s2/l1-b*(s1/l1);
 scatter(x,y)  % draw only point
 hold on
-y1 = a0+a1*x; % linear regression model
+y1 = a+b*x; % linear regression model
 
 plot(x,y1);
 title('Linear Regression Model','color','r');
@@ -26,7 +26,7 @@ legend({'given data','Model'},'Location','Northeast')
 % sum= sum+sin(x(i));
 %y1=[0,0,0,0,0,0,0];
 for i=1:1:l1
-    y1(i)=a0+a1*x(i);
+    y1(i)=a+b*x(i);
     e =abs(y(i)-y1(i));
     fprintf("error at data %d:%f\n",i,e);
 end
